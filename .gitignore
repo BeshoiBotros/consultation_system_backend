@@ -1,0 +1,31 @@
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+*.log
+
+# Django
+db.sqlite3
+staticfiles/
+media/
+
+# Environment / secrets
+.env
+.env.*
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+.vscode/
+.idea/
+.DS_Store
+
+# Docker
+*.pid
