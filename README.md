@@ -43,5 +43,8 @@ These live in `consultation_system_backend/.env`.
 - `GET /consultations/` – list consultations
 - `POST /consultations/` – create consultation
 - `POST /consultations/generate-summary/{uuid}/` – enqueue AI summary
+- `GET  /consultations/{uuid}/summary_status/` see the AI summary status for pooling in frontend every 3s
+- `PATCH /consultations/{uuid}` update any consultations by pk->uuid
+
 
 All protected routes require `Authorization: Bearer <token>`.
