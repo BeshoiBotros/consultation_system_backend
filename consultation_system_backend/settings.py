@@ -33,6 +33,14 @@ DEBUG = True
 allowed_hosts_env = os.getenv('ALLOWED_HOSTS', '')
 ALLOWED_HOSTS = [h for h in allowed_hosts_env.split(',') if h] if allowed_hosts_env else []
 
+cors_allowed_origins_env = os.getenv('CORS_ALLOWED_ORIGINS', '')
+CORS_ALLOWED_ORIGINS = (
+    [o for o in cors_allowed_origins_env.split(',') if o]
+    if cors_allowed_origins_env
+    else []
+)
+CORS_ALLOW_ALL_ORIGINS = os.getenv('CORS_ALLOW_ALL_ORIGINS', '').lower() in ('1', 'true', 'yes')
+
 
 # Application definition
 
@@ -43,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'celery',
     'accounts',
     'patients',
@@ -62,6 +71,7 @@ CELERY_TIMEZONE = 'Africa/Cairo'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',

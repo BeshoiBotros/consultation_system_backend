@@ -9,11 +9,12 @@ class ConsultationSummary(BaseModel):
     requires_urgent_care: bool
 
 def generate_arabic_summary(symptoms: str, diagnosis: str) -> str:
-    
+    # Update the System Prompt to enforce Arabic output
     system_prompt = """
     You are a clinical AI assistant. Analyze the doctor's notes.
     Extract the key symptoms, summarize the visit, and suggest a standard treatment plan based on the diagnosis.
     Determine if the situation requires urgent care.
+    IMPORTANT: All of your generated text must be in professional Arabic.
     """
     
     user_prompt = f"Symptoms: {symptoms}\nDiagnosis: {diagnosis}"
