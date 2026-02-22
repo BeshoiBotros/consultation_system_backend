@@ -34,7 +34,8 @@ class GenerateSummaryView(APIView):
 
     def post(self, request, pk):
         consultation = get_object_or_404(models.Consultation, pk=pk)
-
+        consultation.ai_summary = None
+        consultation.save()
         if not (consultation.diagnosis and consultation.symptoms):
             return Response({'error': 'diagonsis and symptoms must be set!'}, status=status.HTTP_400_BAD_REQUEST)
         
