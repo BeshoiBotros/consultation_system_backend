@@ -39,12 +39,13 @@ These live in `consultation_system_backend/.env`.
 - `POST /accounts/refresh/` – refresh token
 - `GET /patients/` – list patients
 - `POST /patients/` – create patient
-- `GET /patients/{id}/` – retrieve patient
+- `PATCH /patients/{uuid}/` – update any patient
+- `GET /patients/{uuid}/` – retrieve patient
 - `GET /consultations/` – list consultations
 - `POST /consultations/` – create consultation
 - `POST /consultations/generate-summary/{uuid}/` – enqueue AI summary
-- `GET  /consultations/{uuid}/summary_status/` see the AI summary status for pooling in frontend every 3s
-- `PATCH /consultations/{uuid}` update any consultations by pk->uuid
+- `GET  /consultations/{uuid}/summary_status/` – see the AI summary status for pooling in frontend every 3s
+- `PATCH /consultations/{uuid}/` – update any consultations
 
 
 All protected routes require `Authorization: Bearer <token>`.
